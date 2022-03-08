@@ -1,12 +1,10 @@
 const express = require("express");
-const req = require("express/lib/request");
+require("./db/conn");
 const res = require("express/lib/response");
 const app = express();
-const port = process.env.port || 3001;
+const port = process.env.port || 8000;
 
-app.get("/", (req,res) => {
-    res.send("Hello UTU Bmiit ");
-})
+ 
 app.post("/gym",(req , res) => {
     res.send("Hello UTU");
 })
