@@ -44,7 +44,24 @@ app.get("/view",async(req,res) => {
     }
 })
 
+//get the indivisual equipment data using id
 
+app.get("/view/:id",async(req,res) => {
+    try{
+          const _id = req.params.id;
+          const edata = await Equipment.findById(_id);
+          console.log(edata);
+          if(!edata){
+                return res.status(404).send();
+          }
+          else{
+            res.send(edata);
+          }
+          
+    }catch(e) {
+        res.status(500).send(e);
+    }
+})
 app.listen(port, () => {
     console.log(`connection is setup at ${port}`);
 })
