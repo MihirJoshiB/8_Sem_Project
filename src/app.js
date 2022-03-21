@@ -4,6 +4,7 @@ const res = require("express/lib/response");
 const { required } = require("nodemon/lib/config");
 require("./db/conn");
  const Equipment = require("./models/equipment_add");  
+ const Package = require("./models/package");
  const equiprouter = require("./routers/equip");
 
 // const res = require("express/lib/response");
