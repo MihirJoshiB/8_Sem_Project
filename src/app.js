@@ -4,8 +4,9 @@ const res = require("express/lib/response");
 const { required } = require("nodemon/lib/config");
 require("./db/conn");
  const Equipment = require("./models/equipment_add");  
- const Package = require("./models/package");
+ const Package = require("./models/package_add");
  const equiprouter = require("./routers/equip");
+ const packrouter = require("./routers/package");
 
 // const res = require("express/lib/response");
 const app = express();
@@ -13,6 +14,7 @@ const port = process.env.PORT || 8081;
 
 app.use(express.json());
 app.use(equiprouter);
+app.use(packrouter);
 //create add equipemnt
 // app.post("/gym",(req,res) => {
 //     console.log(req.body);
