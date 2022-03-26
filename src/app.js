@@ -3,10 +3,17 @@ const req = require("express/lib/request");
 const res = require("express/lib/response");
 const { required } = require("nodemon/lib/config");
 require("./db/conn");
+
+//models
  const Equipment = require("./models/equipment_add");  
  const Package = require("./models/package_add");
+ const batch = require("./models/batch_add");
+
+ //router
  const equiprouter = require("./routers/equip");
  const packrouter = require("./routers/package");
+ const batchrouter = require("./routers/batch");
+ 
 
 // const res = require("express/lib/response");
 const app = express();
@@ -15,6 +22,7 @@ const port = process.env.PORT || 8081;
 app.use(express.json());
 app.use(equiprouter);
 app.use(packrouter);
+app.use(batchrouter);
 //create add equipemnt
 // app.post("/gym",(req,res) => {
 //     console.log(req.body);
